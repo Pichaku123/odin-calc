@@ -1,0 +1,11 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+button{
+    padding: 20px;
+}
+#display{
+    font-size: 60px;
+    border: 2px solid black;
+}
