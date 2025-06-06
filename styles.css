@@ -8,4 +8,6 @@ button{
 #display{
     font-size: 60px;
     border: 2px solid black;
+    width: 600px;
+    height: 100px;
 }
