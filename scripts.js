@@ -31,10 +31,13 @@ const operators=document.querySelectorAll(".operators");
 const display=document.querySelector("#display");
 const equals=document.querySelector("#equals");
 const clear=document.querySelector("#clear");
+const decimal=document.querySelector("#decimal");
+const del=document.querySelector("#backspace");
 
 let ip="";
 let a="", b="", oper="";
 let firstOperatorUsed=false, secondOperatorUsed=false; 
+let decimalUsed=false;
 
 digits.forEach((digit) => {
     digit.addEventListener("click", () => {
@@ -90,6 +93,37 @@ clear.addEventListener("click", () => {
     firstOperatorUsed=false;
 });
 
+decimal.addEventListener("click", () => {
+    if(!firstOperatorUsed && !a.includes(".")){
+        a+=".";
+        display.textContent=a;
+        decimalUsed=true;
+        console.log(a);
+    }
+    else if(firstOperatorUsed && !b.includes(".")){
+        b+=".";
+        display.textContent=b;
+        decimalUsed=true;
+        console.log(b);
+    }
+});
+
+del.addEventListener("click", () => {
+    if(!firstOperatorUsed && oper===""){    //clear from a
+        a=a.slice(0,-1);
+        display.textContent=a;
+    }
+    else if(firstOperatorUsed && b===""){
+        firstOperatorUsed=false;
+        oper="";
+        display.textContent=a;
+    }
+    else{
+        b=b.slice(0,-1);
+        display.textContent=b;
+    }
+
+});
 
 
 
